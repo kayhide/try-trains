@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -eu
+
+die() {
+    echo $1 >&2
+    exit 1
+}
+
+if [[ -z ${TRAINS_ROOT:-} ]]; then
+    die "TRAINS_ROOT is not set"
+fi
+
+mkdir -p $TRAINS_ROOT/config
+mkdir -p $TRAINS_ROOT/data/elastic_7
+mkdir -p $TRAINS_ROOT/data/fileserver
+mkdir -p $TRAINS_ROOT/data/mongo/configdb
+mkdir -p $TRAINS_ROOT/data/mongo/db
+mkdir -p $TRAINS_ROOT/data/redis
+mkdir -p $TRAINS_ROOT/logs
+sudo chown -R 1000:1000 $TRAINS_ROOT
+
+tree -hpug $TRAINS_ROOT
