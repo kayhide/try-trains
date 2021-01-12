@@ -11,6 +11,7 @@ if [[ -z ${TRAINS_ROOT:-} ]]; then
     die "TRAINS_ROOT is not set"
 fi
 
+mkdir -p $TRAINS_ROOT/agent
 mkdir -p $TRAINS_ROOT/config
 mkdir -p $TRAINS_ROOT/data/elastic_7
 mkdir -p $TRAINS_ROOT/data/fileserver
